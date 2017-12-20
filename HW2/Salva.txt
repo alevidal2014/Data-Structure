@@ -1,0 +1,21 @@
+public void sort(){
+        int value;
+        int cout =0;
+        int cin =0;
+        while(!this.myStack.isEmpty()){
+            value = (int)this.myStack.pop(); cout++;
+            if(this.temp.isEmpty() || value <= (int)this.temp.peek())
+                this.temp.push(value);
+            else
+            {
+                while(!this.temp.isEmpty() && value > (int)this.temp.peek())
+                {this.myStack.push(this.temp.pop()); cin++;}
+               
+                this.temp.push(value);
+            }
+        }
+        
+        while(!this.temp.isEmpty()){
+            this.myStack.push(this.temp.pop());
+        }
+    }
